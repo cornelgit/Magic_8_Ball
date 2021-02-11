@@ -1,0 +1,41 @@
+﻿<Window x:Class="Magic_8_Ball.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Magic_8_Ball"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="700">
+    <Window.DataContext>
+        <local:MainVM/>
+
+    </Window.DataContext>
+    <Window.Background>
+        <ImageBrush ImageSource="8ball.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <StackPanel HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <TextBlock Text="{Binding HelloText}"
+                       TextWrapping="Wrap"
+                       FontSize="30"
+                       TextAlignment ="Center" Background="#FF48C2E0" Foreground="Black"/>
+
+            <Button Content="Reveal"
+                    FontSize="30"                    
+                    Command="{Binding ButtonCommand}" Background="#FFDDDDDD" Click="Button_Click">                
+            </Button>           
+        </StackPanel>
+        <Button Name="PlayMusic" HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Click="PlayMusic_Click" Width="50" Height="50" Margin="572,10,71.6,610.4">
+            <TextBlock Text="Play Music" TextWrapping="Wrap"/>
+        </Button>
+        <Button Name="StopMusic" HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Click="StopMusic_Click" Width="50" Height="50" Margin="634,10,9.6,610.4">
+            <TextBlock Text="Stop Music" TextWrapping="Wrap"/>
+        </Button>
+    </Grid>
+</Window>
